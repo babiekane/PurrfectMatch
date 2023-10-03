@@ -32,7 +32,7 @@ struct ChatListView: View {
             if let users = viewModel.displayingUsers {
               ForEach(users) { user in
                 Button {
-                  //TODO
+                  //TODO: go to selected chat
                 } label: {
                   HStack(alignment: .center, spacing: 20) {
                     Image(user.profilePicture)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NameView: View {
   @ObservedObject var viewModel = ProfileViewModel()
+  
   var body: some View {
     GeometryReader { geo in
       VStack(alignment: .leading, spacing: 40) {

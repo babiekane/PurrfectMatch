@@ -217,9 +217,8 @@ struct ProfileSettingsView: View {
         .cornerRadius(20)
         .padding(.horizontal, 20)
         
-        VStack(alignment: .trailing, spacing: 8) {
+        VStack(alignment: .leading, spacing: 8) {
           Text("About")
-          //        TextField("Tell us more information of your lovely pet", text: $viewModel.about)
           Text(user.about)
             .font(.custom("Fredoka", size: 16))
             .foregroundColor(Color("Black50"))

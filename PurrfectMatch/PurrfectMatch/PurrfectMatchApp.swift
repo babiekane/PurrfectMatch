@@ -18,6 +18,7 @@ struct PurrfectMatchApp: App {
   var body: some Scene {
     WindowGroup {
       CurrentChatView(user: User.mockUsers[0])
+//      WelcomeView()
     }
   }
 }

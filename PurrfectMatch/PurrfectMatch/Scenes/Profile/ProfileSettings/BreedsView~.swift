@@ -25,6 +25,11 @@ struct BreedsView: View {
       .navigationTitle("Cat breeds")
     }
     .searchable(text: $searchText)
+//    {
+//      ForEach(searchResults, id: \.self) { result in
+//        Text("Are you looking for \(result)?").searchCompletion(result)
+//      }
+//    }
   }
   
   var searchResults: [String] {

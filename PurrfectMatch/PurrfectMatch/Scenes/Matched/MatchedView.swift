@@ -79,6 +79,8 @@ struct MatchedView: View {
                 .clipShape(Capsule())
             }
           }
+          
+          Spacer()
         }
         .frame(width: geo.size.width, height: geo.size.height)
       }
