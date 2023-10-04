@@ -112,7 +112,7 @@ struct SignInView: View {
           .padding(.bottom, 36)
           
           Button {
-            //TODO: create account
+            //TODO: sign in
           } label: {
             Text("Sign in")
               .font(.custom("Fredoka", size: 20))
