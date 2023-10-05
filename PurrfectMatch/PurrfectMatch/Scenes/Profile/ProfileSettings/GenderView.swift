@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct GenderViiew: View {
+struct GenderView: View {
   var body: some View {
     HStack(spacing: 12) {
       VStack {
@@ -49,6 +49,6 @@ struct GenderViiew: View {
 
 struct GenderViiew_Previews: PreviewProvider {
   static var previews: some View {
-    GenderViiew()
+    GenderView()
   }
 }
