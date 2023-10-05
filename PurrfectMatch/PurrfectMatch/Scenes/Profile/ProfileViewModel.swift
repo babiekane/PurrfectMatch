@@ -16,7 +16,9 @@ class ProfileViewModel: ObservableObject {
   @Published var breeds = [String]()
   @Published var color = ""
   @Published var about = ""
-  @Published var profilePicture = "Regdoll1"
+  @Published var profilePicture = "Ragdoll1"
+  
+  var onMenuSelected: (() -> Void)?
   
   init() {
     loadCatBreeds()
@@ -31,5 +33,9 @@ class ProfileViewModel: ObservableObject {
     let data = try? Data(contentsOf: url)
     let breeds = try? JSONDecoder().decode([String].self, from: data!)
     self.breeds = breeds!
+  }
+  
+  func selectMenu() {
+    onMenuSelected?()
   }
 }

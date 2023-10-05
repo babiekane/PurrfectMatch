@@ -47,10 +47,13 @@
 		0FCC0E482AC1777100EA5534 /* cat-breeds.json in Resources */ = {isa = PBXBuildFile; fileRef = 0FCC0E472AC1777100EA5534 /* cat-breeds.json */; };
 		0FCC0E4A2AC1832C00EA5534 /* WeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC0E492AC1832C00EA5534 /* WeightPickerView.swift */; };
 		0FCC0E4D2AC20D8200EA5534 /* NameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC0E4C2AC20D8200EA5534 /* NameView.swift */; };
-		0FCC0E4F2AC215FC00EA5534 /* GenderViiew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC0E4E2AC215FC00EA5534 /* GenderViiew.swift */; };
+		0FCC0E4F2AC215FC00EA5534 /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC0E4E2AC215FC00EA5534 /* GenderView.swift */; };
 		0FCC0E512AC2D3BC00EA5534 /* ColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC0E502AC2D3BC00EA5534 /* ColorView.swift */; };
 		0FCC0E532AC2D44900EA5534 /* AgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC0E522AC2D44900EA5534 /* AgeView.swift */; };
 		0FCC0E552AC3403100EA5534 /* BreedsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FCC0E542AC3403100EA5534 /* BreedsView.swift */; };
+		989555102ACDEA2300E7E621 /* ProfileFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895550F2ACDEA2300E7E621 /* ProfileFlowView.swift */; };
+		989555122ACDEA3000E7E621 /* ProfileFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989555112ACDEA3000E7E621 /* ProfileFlowViewModel.swift */; };
+		989555142ACDF37900E7E621 /* ProfileSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989555132ACDF37900E7E621 /* ProfileSettingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,10 +97,13 @@
 		0FCC0E472AC1777100EA5534 /* cat-breeds.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "cat-breeds.json"; sourceTree = "<group>"; };
 		0FCC0E492AC1832C00EA5534 /* WeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerView.swift; sourceTree = "<group>"; };
 		0FCC0E4C2AC20D8200EA5534 /* NameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameView.swift; sourceTree = "<group>"; };
-		0FCC0E4E2AC215FC00EA5534 /* GenderViiew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViiew.swift; sourceTree = "<group>"; };
+		0FCC0E4E2AC215FC00EA5534 /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		0FCC0E502AC2D3BC00EA5534 /* ColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorView.swift; sourceTree = "<group>"; };
 		0FCC0E522AC2D44900EA5534 /* AgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgeView.swift; sourceTree = "<group>"; };
 		0FCC0E542AC3403100EA5534 /* BreedsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreedsView.swift; sourceTree = "<group>"; };
+		9895550F2ACDEA2300E7E621 /* ProfileFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowView.swift; sourceTree = "<group>"; };
+		989555112ACDEA3000E7E621 /* ProfileFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowViewModel.swift; sourceTree = "<group>"; };
+		989555132ACDF37900E7E621 /* ProfileSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +166,7 @@
 				0F64016A2AB36EAD0082AD26 /* MessagesManager.swift */,
 				0F644C2D2ABA116A00284BDB /* UserLoader.swift */,
 				0F7D2F482AAB2C32006F490B /* User.swift */,
+				9895550D2ACDE9BC00E7E621 /* Flows */,
 				0F7D2F3F2AA8854D006F490B /* Scenes */,
 				0F7D2F112AA728AB006F490B /* Assets.xcassets */,
 				0F7D2F132AA728AB006F490B /* Preview Content */,
@@ -283,14 +290,32 @@
 			isa = PBXGroup;
 			children = (
 				0F644C2F2ABC2A3000284BDB /* ProfileSettingsView.swift */,
+				989555132ACDF37900E7E621 /* ProfileSettingsViewModel.swift */,
 				0FCC0E4C2AC20D8200EA5534 /* NameView.swift */,
-				0FCC0E4E2AC215FC00EA5534 /* GenderViiew.swift */,
+				0FCC0E4E2AC215FC00EA5534 /* GenderView.swift */,
 				0FCC0E542AC3403100EA5534 /* BreedsView.swift */,
 				0FCC0E502AC2D3BC00EA5534 /* ColorView.swift */,
 				0FCC0E522AC2D44900EA5534 /* AgeView.swift */,
 				0FCC0E492AC1832C00EA5534 /* WeightPickerView.swift */,
 			);
 			path = ProfileSettings;
+			sourceTree = "<group>";
+		};
+		9895550D2ACDE9BC00E7E621 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				9895550E2ACDE9CD00E7E621 /* ProfileFlow */,
+			);
+			path = Flows;
+			sourceTree = "<group>";
+		};
+		9895550E2ACDE9CD00E7E621 /* ProfileFlow */ = {
+			isa = PBXGroup;
+			children = (
+				9895550F2ACDEA2300E7E621 /* ProfileFlowView.swift */,
+				989555112ACDEA3000E7E621 /* ProfileFlowViewModel.swift */,
+			);
+			path = ProfileFlow;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -374,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F7D2F342AA881C5006F490B /* ChatListView.swift in Sources */,
+				989555122ACDEA3000E7E621 /* ProfileFlowViewModel.swift in Sources */,
 				0F7D2F262AA88144006F490B /* FindingViewModel.swift in Sources */,
 				0F7D2F2E2AA88198006F490B /* WelcomeViewModel.swift in Sources */,
 				0F7D2F492AAB2C32006F490B /* User.swift in Sources */,
@@ -385,12 +411,13 @@
 				0FCC0E552AC3403100EA5534 /* BreedsView.swift in Sources */,
 				0F64015F2AB2F0330082AD26 /* MessageBubble.swift in Sources */,
 				0F7D2F3C2AA881FC006F490B /* ProfileView.swift in Sources */,
+				989555102ACDEA2300E7E621 /* ProfileFlowView.swift in Sources */,
 				0F7D2F362AA881D3006F490B /* ChatListViewModel.swift in Sources */,
 				0F7D2F282AA8816D006F490B /* MatchedView.swift in Sources */,
 				0F7D2F472AAAF848006F490B /* CardView.swift in Sources */,
 				0F6401622AB303360082AD26 /* MessageField.swift in Sources */,
 				0F7D2F0E2AA728AA006F490B /* PurrfectMatchApp.swift in Sources */,
-				0FCC0E4F2AC215FC00EA5534 /* GenderViiew.swift in Sources */,
+				0FCC0E4F2AC215FC00EA5534 /* GenderView.swift in Sources */,
 				0F374C0F2ACC7C6400D8361F /* SignInView.swift in Sources */,
 				0F7D2F3A2AA881F0006F490B /* CurrentChatViewModel.swift in Sources */,
 				0F7D2F452AA9CA6E006F490B /* MainTabView.swift in Sources */,
@@ -410,6 +437,7 @@
 				0F64015D2AB2E6670082AD26 /* TitleRowView.swift in Sources */,
 				0F7D2F4E2AAF227C006F490B /* NotificationView.swift in Sources */,
 				0F374C112ACC800800D8361F /* AuthViewModel.swift in Sources */,
+				989555142ACDF37900E7E621 /* ProfileSettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

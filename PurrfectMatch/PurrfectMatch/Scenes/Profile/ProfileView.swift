@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ProfileView: View {
+  
   var user: User
+  
+  @ObservedObject var viewModel: ProfileViewModel
   
   var body: some View {
     ZStack {
@@ -25,7 +28,7 @@ struct ProfileView: View {
               Spacer()
               
               Button {
-                //todo
+                viewModel.selectMenu()
               } label: {
                 Image(systemName: "line.3.horizontal")
                   .font(.title)
@@ -191,6 +194,6 @@ struct ProfileView: View {
 
 struct ProfileView_Previews: PreviewProvider {
   static var previews: some View {
-    ProfileView(user: User.mockUsers[0])
+    ProfileView(user: User.mockUsers[0], viewModel: ProfileViewModel())
   }
 }

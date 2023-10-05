@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ProfileSettingsView: View {
-  @ObservedObject var viewModel = ProfileViewModel()
+  @ObservedObject var viewModel: ProfileSettingsViewModel
   var user: User
   
   var body: some View {
@@ -46,7 +46,7 @@ struct ProfileSettingsView: View {
         VStack(spacing: 20) {
           Group {
             Button {
-              //todo
+              viewModel.selectNameForm()
             } label: {
               HStack {
                 Text("Name")
@@ -72,7 +72,7 @@ struct ProfileSettingsView: View {
           
           Group {
             Button {
-              //todo
+              viewModel.selectGenderForm()
             } label: {
               HStack {
                 Text("Gender")
@@ -235,6 +235,6 @@ struct ProfileSettingsView: View {
 
 struct ProfileSettingsView_Previews: PreviewProvider {
   static var previews: some View {
-    ProfileSettingsView(user: User.mockUsers[0])
+    ProfileSettingsView(viewModel: ProfileSettingsViewModel(), user: User.mockUsers[0])
   }
 }

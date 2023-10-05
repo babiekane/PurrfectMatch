@@ -22,7 +22,7 @@ struct MainTabView: View {
         ChatListView()
           .tag(2)
         
-        ProfileView(user: User.mockUsers[0])
+        ProfileView(user: User.mockUsers[0], viewModel: ProfileViewModel())
           .tag(3)
       }
       
