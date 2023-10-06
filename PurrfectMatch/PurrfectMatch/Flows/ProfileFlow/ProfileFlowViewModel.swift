@@ -29,6 +29,22 @@ class ProfileFlowViewModel: ObservableObject {
       self.navigateToGenderForm()
     }
     
+    viewModel.onBreedSelected = {
+      self.navigateToBreedForm()
+    }
+    
+    viewModel.onColorFormSelected = {
+      self.navigateToColorForm()
+    }
+    
+    viewModel.onDatePickerSelected = {
+      self.navigateToDatePickerForm()
+    }
+    
+    viewModel.onWeightPickerSelected = {
+      self.navigateToWeightPickerForm()
+    }
+    
     let user = User.mockUsers[0]
     let view = ProfileSettingsView(viewModel: viewModel, user: user)
     destinations.append(ProfileFlowDestination(view: AnyView(view)))
@@ -42,6 +58,28 @@ class ProfileFlowViewModel: ObservableObject {
   
   func navigateToGenderForm() {
     let view = GenderView()
+    destinations.append(ProfileFlowDestination(view: AnyView(view)))
+  }
+  
+  func navigateToBreedForm() {
+    let viewModel = ProfileViewModel()
+    let view = BreedsView(viewModel: viewModel)
+    destinations.append(ProfileFlowDestination(view: AnyView(view)))
+  }
+  
+  func navigateToColorForm() {
+    let viewModel = ProfileViewModel()
+    let view = ColorView(viewModel: viewModel)
+    destinations.append(ProfileFlowDestination(view: AnyView(view)))
+  }
+  
+  func navigateToDatePickerForm() {
+    let view = AgeView()
+    destinations.append(ProfileFlowDestination(view: AnyView(view)))
+  }
+  
+  func navigateToWeightPickerForm() {
+    let view = WeightPickerView()
     destinations.append(ProfileFlowDestination(view: AnyView(view)))
   }
 }

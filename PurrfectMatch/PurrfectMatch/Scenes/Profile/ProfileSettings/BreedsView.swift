@@ -8,22 +8,26 @@
 import SwiftUI
 
 struct BreedsView: View {
-  @ObservedObject var viewModel = ProfileViewModel()
+  @ObservedObject var viewModel: ProfileViewModel
   @State private var searchText = ""
   
   var body: some View {
-    NavigationStack {
-      List {
-        ForEach(searchResults, id: \.self) { breed in
-            Text(breed)
-              .font(.custom("Fredoka", size: 18))
-              .foregroundColor(Color("Black"))
+    List {
+      ForEach(searchResults, id: \.self) { breed in
+        Button {
+          // TODO: Insert action here
+          print(breed)
+        } label: {
+          Text(breed)
+            .font(.custom("Fredoka", size: 18))
+            .foregroundColor(Color("Black"))
         }
-        .listRowSeparator(.hidden, edges: .all)
       }
-      .listStyle(.plain)
-      .navigationTitle("Cat breeds")
+      .listRowSeparator(.hidden, edges: .all)
     }
+    .listStyle(.plain)
+    .navigationTitle("Cat breeds")
+    .navigationBarTitleDisplayMode(.large)
     .searchable(text: $searchText)
   }
   

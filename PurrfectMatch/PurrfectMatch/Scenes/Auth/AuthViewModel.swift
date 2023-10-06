@@ -10,4 +10,10 @@ class AuthViewModel: ObservableObject {
   @Published var email = ""
   @Published var password = ""
   @Published var showPassword = false
+  
+  var onSignInSelected: (() -> Void)?
+  
+  func selectSignIn() {
+    onSignInSelected?()
+  }
 }

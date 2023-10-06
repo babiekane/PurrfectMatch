@@ -13,7 +13,7 @@ struct CardView: View {
   @State private var offset = CGSize.zero
   
   var body: some View {
-      VStack(spacing: 20) {
+    VStack(spacing: 20) {
         ZStack {
           Image(user.profilePicture)
             .resizable()

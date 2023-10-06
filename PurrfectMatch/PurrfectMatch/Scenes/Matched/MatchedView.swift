@@ -16,7 +16,7 @@ struct MatchedView: View {
           .scaledToFill()
           .ignoresSafeArea()
         
-        VStack(spacing: 20) {
+        VStack(spacing: 40) {
           Text("Purrfect match!!!")
             .font(.custom("Fredoka", size: 36))
             .fontWeight(.medium)
@@ -24,7 +24,7 @@ struct MatchedView: View {
           
           ZStack {
             HStack {
-              Image("Regdoll2")
+              Image("Ragdoll2")
                 .resizable()
                 .scaledToFill()
                 .frame(width: geo.size.width / 2 , height: geo.size.height / 3)
@@ -32,7 +32,7 @@ struct MatchedView: View {
                 .rotationEffect(.degrees(-5))
                 .offset(x: 30, y: -50)
               
-              Image("Regdoll3")
+              Image("Ragdoll3")
                 .resizable()
                 .scaledToFill()
                 .frame(width: geo.size.width / 2 , height: geo.size.height / 3)
@@ -49,6 +49,7 @@ struct MatchedView: View {
             .font(.custom("Fredoka", size: 18))
             .foregroundColor(Color("Black80"))
             .frame(width: geo.size.width / 1.2, alignment: .center)
+            .padding(.bottom, 20)
           
           HStack {
             Button {
@@ -79,11 +80,9 @@ struct MatchedView: View {
                 .clipShape(Capsule())
             }
           }
-          
-          Spacer()
         }
-        .frame(width: geo.size.width, height: geo.size.height)
       }
+      .frame(width: geo.size.width, height: geo.size.height)
     }
   }
 }

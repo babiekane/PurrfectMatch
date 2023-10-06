@@ -155,7 +155,7 @@ struct SignUpView: View {
               .foregroundColor(Color("Black"))
             
             Button {
-              //TODO: go to sign in screen
+              viewModel.selectSignIn()
             } label: {
               Text("Sign in")
                 .font(.custom("Fredoka", size: 16))

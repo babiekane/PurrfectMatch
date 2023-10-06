@@ -26,7 +26,7 @@ struct ColorView: View {
           .foregroundColor(Color("Black"))
           .padding(.top, 30)
         
-        TextField("Enter your pet colors", text: $viewModel.name)
+        TextField("Enter your pet colors", text: $viewModel.color)
           .font(.custom("Fredoka", size: 18))
           .foregroundColor(Color("Black"))
           .padding()
