@@ -15,9 +15,12 @@ struct PurrfectMatchApp: App {
     FirebaseApp.configure()
   }
   
+  @StateObject var welcomeFlowViewModel = WelcomeFlowViewModel()
+  
   var body: some Scene {
     WindowGroup {
-      CurrentChatView(user: User.mockUsers[0])
+      WelcomeFlowView(viewModel: welcomeFlowViewModel)
+      //      CurrentChatView(user: User.mockUsers[0])
 //      WelcomeView()
     }
   }

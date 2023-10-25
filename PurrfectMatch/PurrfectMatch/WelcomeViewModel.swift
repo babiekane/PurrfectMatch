@@ -6,3 +6,12 @@
 //
 
 import Foundation
+
+class WelcomeViewModel: ObservableObject {
+  
+  var onSignupPressed: (() -> Void)?
+  
+  func pressSignup() {
+    onSignupPressed?()
+  }
+}
