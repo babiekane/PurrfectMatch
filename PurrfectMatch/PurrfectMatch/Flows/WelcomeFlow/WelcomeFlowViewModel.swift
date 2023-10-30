@@ -29,11 +29,16 @@ class WelcomeFlowViewModel: ObservableObject {
   }
   
   func navigateToLogin() {
-    // TODO
+    let viewModel = SignInViewModel()
+    let view = SignInView(viewModel: viewModel)
+    currentView = AnyView(view)
   }
   
   func navigateToSignup() {
-    let viewModel = AuthViewModel()
+    let viewModel = SignUpViewModel()
+    viewModel.onSignInSelected = { [weak self] in
+      self?.navigateToLogin()
+    }
     let view = SignUpView(viewModel: viewModel)
     currentView = AnyView(view)
   }

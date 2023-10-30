@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F374C0D2ACC7C5000D8361F /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F374C0C2ACC7C5000D8361F /* SignUpView.swift */; };
 		0F374C0F2ACC7C6400D8361F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F374C0E2ACC7C6400D8361F /* SignInView.swift */; };
-		0F374C112ACC800800D8361F /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F374C102ACC800800D8361F /* AuthViewModel.swift */; };
+		0F374C112ACC800800D8361F /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F374C102ACC800800D8361F /* SignUpViewModel.swift */; };
 		0F64015B2AB2E4250082AD26 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64015A2AB2E4250082AD26 /* Message.swift */; };
 		0F64015D2AB2E6670082AD26 /* TitleRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64015C2AB2E6670082AD26 /* TitleRowView.swift */; };
 		0F64015F2AB2F0330082AD26 /* MessageBubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64015E2AB2F0330082AD26 /* MessageBubble.swift */; };
@@ -60,12 +60,13 @@
 		989555102ACDEA2300E7E621 /* ProfileFlowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9895550F2ACDEA2300E7E621 /* ProfileFlowView.swift */; };
 		989555122ACDEA3000E7E621 /* ProfileFlowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989555112ACDEA3000E7E621 /* ProfileFlowViewModel.swift */; };
 		989555142ACDF37900E7E621 /* ProfileSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989555132ACDF37900E7E621 /* ProfileSettingsViewModel.swift */; };
+		98F219E42AEFFE5C0090DD20 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F219E32AEFFE5C0090DD20 /* SignInViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0F374C0C2ACC7C5000D8361F /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		0F374C0E2ACC7C6400D8361F /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		0F374C102ACC800800D8361F /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		0F374C102ACC800800D8361F /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		0F64015A2AB2E4250082AD26 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		0F64015C2AB2E6670082AD26 /* TitleRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleRowView.swift; sourceTree = "<group>"; };
 		0F64015E2AB2F0330082AD26 /* MessageBubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBubble.swift; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		9895550F2ACDEA2300E7E621 /* ProfileFlowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowView.swift; sourceTree = "<group>"; };
 		989555112ACDEA3000E7E621 /* ProfileFlowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileFlowViewModel.swift; sourceTree = "<group>"; };
 		989555132ACDF37900E7E621 /* ProfileSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsViewModel.swift; sourceTree = "<group>"; };
+		98F219E32AEFFE5C0090DD20 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,16 +133,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F374C0B2ACC7C3600D8361F /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				0F374C0C2ACC7C5000D8361F /* SignUpView.swift */,
-				0F374C0E2ACC7C6400D8361F /* SignInView.swift */,
-				0F374C102ACC800800D8361F /* AuthViewModel.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
 		0F6401602AB3030C0082AD26 /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,7 +260,8 @@
 			children = (
 				0F7D2F432AA9CA5E006F490B /* Tabbar */,
 				0F7D2F1B2AA73396006F490B /* Welcome */,
-				0F374C0B2ACC7C3600D8361F /* Auth */,
+				98F219E12AEFFE3F0090DD20 /* Signup */,
+				98F219E22AEFFE450090DD20 /* Login */,
 				0F7D2F1C2AA7339D006F490B /* Finding */,
 				0F7D2F1D2AA733A1006F490B /* Matched */,
 				0F7D2F212AA73460006F490B /* Information */,
@@ -360,6 +353,24 @@
 			path = ProfileFlow;
 			sourceTree = "<group>";
 		};
+		98F219E12AEFFE3F0090DD20 /* Signup */ = {
+			isa = PBXGroup;
+			children = (
+				0F374C0C2ACC7C5000D8361F /* SignUpView.swift */,
+				0F374C102ACC800800D8361F /* SignUpViewModel.swift */,
+			);
+			path = Signup;
+			sourceTree = "<group>";
+		};
+		98F219E22AEFFE450090DD20 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				0F374C0E2ACC7C6400D8361F /* SignInView.swift */,
+				98F219E32AEFFE5C0090DD20 /* SignInViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,6 +460,7 @@
 				0FBEA9272AD0773100ED1DD3 /* AuthFlowView.swift in Sources */,
 				0F7D2F492AAB2C32006F490B /* User.swift in Sources */,
 				0FCC0E512AC2D3BC00EA5534 /* ColorView.swift in Sources */,
+				98F219E42AEFFE5C0090DD20 /* SignInViewModel.swift in Sources */,
 				0F644C302ABC2A3000284BDB /* ProfileSettingsView.swift in Sources */,
 				0F7D2F242AA880C5006F490B /* FindingView.swift in Sources */,
 				0F7D2F382AA881E2006F490B /* CurrentChatView.swift in Sources */,
@@ -484,7 +496,7 @@
 				0F644C2E2ABA116A00284BDB /* UserLoader.swift in Sources */,
 				0F64015D2AB2E6670082AD26 /* TitleRowView.swift in Sources */,
 				0F7D2F4E2AAF227C006F490B /* NotificationView.swift in Sources */,
-				0F374C112ACC800800D8361F /* AuthViewModel.swift in Sources */,
+				0F374C112ACC800800D8361F /* SignUpViewModel.swift in Sources */,
 				989555142ACDF37900E7E621 /* ProfileSettingsViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
