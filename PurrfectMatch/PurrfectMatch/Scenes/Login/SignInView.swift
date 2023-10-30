@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
-  @ObservedObject var viewModel: AuthViewModel = AuthViewModel()
+  @ObservedObject var viewModel: SignInViewModel
   
   var body: some View {
     ZStack {
@@ -145,8 +145,6 @@ struct SignInView: View {
   }
 }
 
-struct SignInView_Previews: PreviewProvider {
-  static var previews: some View {
-    SignInView()
-  }
+#Preview {
+  SignInView(viewModel: SignInViewModel())
 }

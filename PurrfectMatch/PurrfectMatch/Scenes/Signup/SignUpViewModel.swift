@@ -6,7 +6,8 @@
 //
 
 import Foundation
-class AuthViewModel: ObservableObject {
+
+class SignUpViewModel: ObservableObject {
   @Published var email = ""
   @Published var password = ""
   @Published var showPassword = false
