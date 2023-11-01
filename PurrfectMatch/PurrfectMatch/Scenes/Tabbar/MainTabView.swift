@@ -27,18 +27,18 @@ struct MainTabView: View {
       }
       
       ZStack {
-          HStack {
-              ForEach((TabbedItems.allCases), id: \.self) { item in
-                Button {
-                  withAnimation(.spring()) {
-                    selectedTab = item.rawValue
-                  }
-                  } label: {
-                      CustomTabItem(image: item.icon, title: item.title, isActive: (selectedTab == item.rawValue))
-                  }
+        HStack {
+          ForEach((TabbedItems.allCases), id: \.self) { item in
+            Button {
+              withAnimation(.spring()) {
+                selectedTab = item.rawValue
               }
+            } label: {
+              CustomTabItem(image: item.icon, title: item.title, isActive: (selectedTab == item.rawValue))
+            }
           }
-          .padding(6)
+        }
+        .padding(6)
       }
       .frame(height: 70)
       .background(Color("White"))

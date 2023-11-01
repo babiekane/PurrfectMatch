@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct WelcomeView: View {
+  
+  @ObservedObject var viewModel: WelcomeViewModel
+  
   var body: some View {
     ZStack {
       Image("Background")
@@ -27,7 +30,7 @@ struct WelcomeView: View {
             .padding(.bottom, 36)
           
           Button {
-            //TODO: go to sign up screen
+            viewModel.pressSignup()
           } label: {
             Text("Get started!")
               .font(.custom("Fredoka", size: 20))
@@ -44,8 +47,6 @@ struct WelcomeView: View {
   }
 }
 
-struct WelcomeView_Previews: PreviewProvider {
-  static var previews: some View {
-    WelcomeView()
-  }
+#Preview {
+  WelcomeView(viewModel: WelcomeViewModel())
 }

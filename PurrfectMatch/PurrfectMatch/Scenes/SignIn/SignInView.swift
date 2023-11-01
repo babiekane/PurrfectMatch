@@ -180,10 +180,8 @@ struct SignInView: View {
   }
 }
 
-struct SignInView_Previews: PreviewProvider {
-  static var previews: some View {
-    SignInView(viewModel: SignInViewModel(onLoginSuccess: {}, onPressSignup: {}))
-  }
+#Preview {
+  SignInView(viewModel: SignInViewModel(onLoginSuccess: {}, onPressSignup: {}))
 }
 
 extension String: Identifiable {
