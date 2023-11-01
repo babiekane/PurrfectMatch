@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignUpView: View {
-  @ObservedObject var viewModel: AuthViewModel = AuthViewModel()
+  @ObservedObject var viewModel: SignUpViewModel
   
   var body: some View {
     ZStack {
@@ -36,6 +36,8 @@ struct SignUpView: View {
             }
             
             TextField("", text: $viewModel.email)
+              .textInputAutocapitalization(.never)
+              .autocorrectionDisabled()
               .padding()
               .font(.custom("Fredoka", size: 16))
               .fontWeight(.medium)
@@ -73,17 +75,19 @@ struct SignUpView: View {
                         .accentColor(.gray)
                     }
                   }
-                      .padding()
-                      .font(.custom("Fredoka", size: 16))
-                      .fontWeight(.medium)
-                      .foregroundColor(Color("Black"))
-                      .frame(width: geo.size.width - 72, height: 50)
-                      .background(Color("White"))
-                      .clipShape(RoundedRectangle(cornerRadius: 30))
-                      .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                          .stroke(Color("Lilac"))
-                    )
+                  .textInputAutocapitalization(.never)
+                  .autocorrectionDisabled()
+                  .padding()
+                  .font(.custom("Fredoka", size: 16))
+                  .fontWeight(.medium)
+                  .foregroundColor(Color("Black"))
+                  .frame(width: geo.size.width - 72, height: 50)
+                  .background(Color("White"))
+                  .clipShape(RoundedRectangle(cornerRadius: 30))
+                  .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                      .stroke(Color("Lilac"))
+                  )
                   
                 } else {
                   HStack {
@@ -95,35 +99,57 @@ struct SignUpView: View {
                         .accentColor(.gray)
                     }
                   }
-                      .padding()
-                      .font(.custom("Fredoka", size: 16))
-                      .fontWeight(.medium)
-                      .foregroundColor(Color("Black"))
-                      .frame(width: geo.size.width - 72, height: 50)
-                      .background(Color("White"))
-                      .clipShape(RoundedRectangle(cornerRadius: 30))
-                      .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                          .stroke(Color("Lilac"))
-                    )
+                  .textInputAutocapitalization(.never)
+                  .autocorrectionDisabled()
+                  .padding()
+                  .font(.custom("Fredoka", size: 16))
+                  .fontWeight(.medium)
+                  .foregroundColor(Color("Black"))
+                  .frame(width: geo.size.width - 72, height: 50)
+                  .background(Color("White"))
+                  .clipShape(RoundedRectangle(cornerRadius: 30))
+                  .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                      .stroke(Color("Lilac"))
+                  )
                 }
               }
             }
           }
           .padding(.bottom, 36)
           
-          Button {
-            //TODO: create account
-          } label: {
-            Text("Create account")
-              .font(.custom("Fredoka", size: 20))
-              .fontWeight(.medium)
-              .foregroundColor(Color("White"))
+          if viewModel.isLoading {
+            ProgressView()
+              .tint(Color("White"))
               .frame(width: geo.size.width / 2, height: 60)
               .background(Color("Lilac"))
               .clipShape(Capsule())
+              .padding(.bottom, 36)
+          } else {
+            Button {
+              if viewModel.email.isEmpty || viewModel.password.isEmpty {
+                viewModel.showAlert = true
+              } else {
+                viewModel.signUp(email: viewModel.email, password: viewModel.password)
+              }
+            } label: {
+              Text("Create account")
+                .font(.custom("Fredoka", size: 20))
+                .fontWeight(.medium)
+                .foregroundColor(Color("White"))
+                .frame(width: geo.size.width / 2, height: 60)
+                .background(Color("Lilac"))
+                .clipShape(Capsule())
+            }
+            .padding(.bottom, 36)
+            .alert(isPresented: $viewModel.showAlert) {
+              Alert(
+                title: Text("Unable to create account"),
+                message: Text("Please fill email and password."),
+                dismissButton: .default(Text("OK"))
+              )
+            }
           }
-          .padding(.bottom, 36)
           
           Text("Or sign up with")
             .font(.custom("Fredoka", size: 16))
@@ -131,16 +157,16 @@ struct SignUpView: View {
           
           HStack(spacing: 12) {
             Button {
-              //TODO: sign up with apple
+              viewModel.logInWithApple()
             } label: {
               Image("Applelogo")
                 .resizable()
-                .frame(width: 30, height: 30)
+                .frame(width: 31, height: 31)
                 .clipShape(RoundedRectangle(cornerRadius: 5))
           }
             
             Button {
-              //TODO: sign up with gmail
+              viewModel.logInWithGoogle()
             } label: {
               Image("Googlelogo")
                 .resizable()
@@ -155,9 +181,9 @@ struct SignUpView: View {
               .foregroundColor(Color("Black"))
             
             Button {
-              viewModel.selectSignIn()
+              viewModel.selectLogin()
             } label: {
-              Text("Sign in")
+              Text("Login")
                 .font(.custom("Fredoka", size: 16))
                 .fontWeight(.semibold)
                 .foregroundColor(Color("Lilac"))
@@ -172,6 +198,6 @@ struct SignUpView: View {
 
 struct SignUpView_Previews: PreviewProvider {
   static var previews: some View {
-    SignUpView()
+    SignUpView(viewModel: SignUpViewModel(onSignupSuccess: {}, onPressLogin: {}))
   }
 }

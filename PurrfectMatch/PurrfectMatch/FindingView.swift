@@ -18,9 +18,17 @@ struct FindingView: View {
           .resizable()
           .scaledToFill()
           .ignoresSafeArea()
+          .frame(width: geo.size.width, height: geo.size.height)
         
-        VStack(spacing: 30) {
+        VStack(spacing: 20) {
           HStack {
+            Text("PurrfectMatch")
+              .font(.custom("Fredoka", size: 28))
+              .fontWeight(.medium)
+              .foregroundColor(Color("Pinky"))
+            
+            Spacer()
+            
             Button {
               //TODO: re fetching data
             } label: {
@@ -28,15 +36,6 @@ struct FindingView: View {
                 .font(.title)
                 .foregroundColor(Color("Lilac"))
             }
-            
-            Spacer()
-            
-            Text("Do you like me?")
-              .font(.custom("Fredoka", size: 28))
-              .fontWeight(.medium)
-              .foregroundColor(Color("Pinky"))
-            
-            Spacer()
             
             Button {
               //TODO: make filter (subscriber member only)
@@ -67,8 +66,8 @@ struct FindingView: View {
             }
           }
         }
+        .frame(width: geo.size.width, height: geo.size.height, alignment: .top)
       }
-      .frame(width: geo.size.width, height: geo.size.height)
     }
   }
 }

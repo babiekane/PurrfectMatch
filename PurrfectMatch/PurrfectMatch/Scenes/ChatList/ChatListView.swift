@@ -58,13 +58,14 @@ struct ChatListView: View {
                         .font(.custom("Fredoka", size: 12))
                         .foregroundColor(Color("Black30"))
                     }
-                    .padding(.bottom, 30)
+                    .padding(.bottom, 20)
                   }
                 }
               }
             }
           }
-          .frame(width: geo.size.width - 40, height: geo.size.height)
+          .padding(.horizontal, 20)
+          .frame(width: geo.size.width, height: geo.size.height)
         }
       }
     }

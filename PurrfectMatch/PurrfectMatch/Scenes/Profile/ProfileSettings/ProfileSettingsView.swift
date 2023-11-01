@@ -15,10 +15,25 @@ struct ProfileSettingsView: View {
   var body: some View {
     GeometryReader { geo in
       VStack(spacing: 20) {
-        Text("Pet Profile 🐾")
-          .font(.custom("Fredoka", size: 24))
-          .fontWeight(.medium)
+        ZStack {
+          HStack {
+            Button {
+              // todo
+            } label: {
+              Image(systemName: "chevron.left")
+                .font(.title2)
+                .foregroundColor(Color("Black"))
+            }
+            
+            Spacer()
+          }
+          
+          Text("Pet Profile")
+            .font(.custom("Fredoka", size: 24))
+            .fontWeight(.medium)
           .foregroundColor(Color("Black"))
+        }
+        .padding(.horizontal, 20)
         
         ScrollView(showsIndicators: false) {
           Button {

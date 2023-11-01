@@ -8,5 +8,4 @@
 import SwiftUI
 
 class AuthFlowViewModel: ObservableObject {
-  
 }

@@ -57,7 +57,7 @@ struct MainTabView_Previews: PreviewProvider {
 
 extension MainTabView {
   func CustomTabItem(image: Image, title: String, isActive: Bool) -> some View {
-    HStack(spacing: 10) {
+    HStack(spacing: 0) {
       
       Spacer()
       
@@ -69,12 +69,12 @@ extension MainTabView {
       if isActive {
         Text(title)
           .font(.system(size: 14))
-          .foregroundColor(isActive ? .black : .gray)
+          .foregroundColor(isActive ? Color("Black") : .gray)
       }
       
       Spacer()
     }
-    .frame(width: isActive ? .infinity : 60, height: 60)
+    .frame(width: isActive ? .infinity : 70, height: 60)
     .background(isActive ? Color("Lilac").opacity(0.4) : .clear)
     .cornerRadius(30)
   }

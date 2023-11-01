@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SignInView: View {
-  @ObservedObject var viewModel: AuthViewModel = AuthViewModel()
+  @ObservedObject var viewModel: SignInViewModel
   
   var body: some View {
     ZStack {
@@ -19,7 +19,7 @@ struct SignInView: View {
       
       GeometryReader { geo in
         VStack {
-          Text("Sign in")
+          Text("Login")
             .font(.custom("Fredoka", size: 28))
             .fontWeight(.medium)
             .foregroundColor(Color("Black"))
@@ -36,6 +36,8 @@ struct SignInView: View {
             }
             
             TextField("", text: $viewModel.email)
+              .textInputAutocapitalization(.never)
+              .autocorrectionDisabled()
               .padding()
               .font(.custom("Fredoka", size: 16))
               .fontWeight(.medium)
@@ -72,17 +74,19 @@ struct SignInView: View {
                         .accentColor(.gray)
                     }
                   }
-                      .padding()
-                      .font(.custom("Fredoka", size: 16))
-                      .fontWeight(.medium)
-                      .foregroundColor(Color("Black"))
-                      .frame(width: geo.size.width - 72, height: 50)
-                      .background(Color("White"))
-                      .clipShape(RoundedRectangle(cornerRadius: 30))
-                      .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                          .stroke(Color("Lilac"))
-                    )
+                  .textInputAutocapitalization(.never)
+                  .autocorrectionDisabled()
+                  .padding()
+                  .font(.custom("Fredoka", size: 16))
+                  .fontWeight(.medium)
+                  .foregroundColor(Color("Black"))
+                  .frame(width: geo.size.width - 72, height: 50)
+                  .background(Color("White"))
+                  .clipShape(RoundedRectangle(cornerRadius: 30))
+                  .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                      .stroke(Color("Lilac"))
+                  )
                   
                 } else {
                   HStack {
@@ -94,35 +98,56 @@ struct SignInView: View {
                         .accentColor(.gray)
                     }
                   }
-                      .padding()
-                      .font(.custom("Fredoka", size: 16))
-                      .fontWeight(.medium)
-                      .foregroundColor(Color("Black"))
-                      .frame(width: geo.size.width - 72, height: 50)
-                      .background(Color("White"))
-                      .clipShape(RoundedRectangle(cornerRadius: 30))
-                      .overlay(
-                        RoundedRectangle(cornerRadius: 30)
-                          .stroke(Color("Lilac"))
-                    )
+                  .textInputAutocapitalization(.never)
+                  .autocorrectionDisabled()
+                  .padding()
+                  .font(.custom("Fredoka", size: 16))
+                  .fontWeight(.medium)
+                  .foregroundColor(Color("Black"))
+                  .frame(width: geo.size.width - 72, height: 50)
+                  .background(Color("White"))
+                  .clipShape(RoundedRectangle(cornerRadius: 30))
+                  .overlay(
+                    RoundedRectangle(cornerRadius: 30)
+                      .stroke(Color("Lilac"))
+                  )
                 }
               }
+            }
+            
+            Button {
+              viewModel.isPresented = true
+            } label: {
+              Text("Forgot password?")
+                .font(.custom("Fredoka", size: 16))
+                .fontWeight(.medium)
+                .foregroundColor(Color("Pinky"))
+                .frame(width: geo.size.width - 60, alignment: .trailing)
             }
           }
           .padding(.bottom, 36)
           
-          Button {
-            //TODO: sign in
-          } label: {
-            Text("Sign in")
-              .font(.custom("Fredoka", size: 20))
-              .fontWeight(.medium)
-              .foregroundColor(Color("White"))
+          if viewModel.isLoading {
+            ProgressView()
+              .tint(Color("White"))
               .frame(width: geo.size.width / 2, height: 60)
               .background(Color("Lilac"))
               .clipShape(Capsule())
+              .padding(.bottom, 36)
+          } else {
+            Button {
+              viewModel.logIn(email: viewModel.email, password: viewModel.password)
+            } label: {
+              Text("Login")
+                .font(.custom("Fredoka", size: 20))
+                .fontWeight(.medium)
+                .foregroundColor(Color("White"))
+                .frame(width: geo.size.width / 2, height: 60)
+                .background(Color("Lilac"))
+                .clipShape(Capsule())
+            }
+            .padding(.bottom, 36)
           }
-          .padding(.bottom, 36)
           
           HStack {
             Text("Don't have an account?")
@@ -130,7 +155,7 @@ struct SignInView: View {
               .foregroundColor(Color("Black"))
             
             Button {
-              //TODO: go to sign in screen
+              viewModel.selectedSignup()
             } label: {
               Text("Sign up")
                 .font(.custom("Fredoka", size: 16))
@@ -142,11 +167,25 @@ struct SignInView: View {
         .frame(width: geo.size.width, height: geo.size.height)
       }
     }
+    .alert(item: $viewModel.errorMessage) { errorMessage in
+      Alert(
+        title: Text("Unable to login"),
+        message: Text(errorMessage),
+        dismissButton: .default(Text("OK"))
+      )
+    }
+    .sheet(isPresented: $viewModel.isPresented) {
+      ForgotPasswordView()
+    }
   }
 }
 
 struct SignInView_Previews: PreviewProvider {
   static var previews: some View {
-    SignInView()
+    SignInView(viewModel: SignInViewModel(onLoginSuccess: {}, onPressSignup: {}))
   }
+}
+
+extension String: Identifiable {
+  public var id: String { self }
 }

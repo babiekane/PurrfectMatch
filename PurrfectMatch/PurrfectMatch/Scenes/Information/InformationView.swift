@@ -14,22 +14,23 @@ struct InformationView: View {
   var body: some View {
     let user = viewModel.user
     
-    ZStack {
-      Image("Background")
-        .resizable()
-        .scaledToFill()
-        .ignoresSafeArea()
-      
-      if let user = user {
-        GeometryReader { geo in
+    GeometryReader { geo in
+      ZStack {
+        Image("Background")
+          .resizable()
+          .scaledToFill()
+          .ignoresSafeArea()
+          .frame(width: geo.size.width, height: geo.size.height)
+        
+        if let user = user {
           ScrollView(showsIndicators: false) {
             VStack(spacing: 20) {
               VStack {
-                Image(user.profilePicture)
+                Image("Ragdoll1")
                   .resizable()
                   .scaledToFill()
-                  .frame(width: geo.size.width, height: geo.size.height / 2)
-                .cornerRadius(40)
+                  .frame(width: geo.size.width - 20, height: geo.size.height / 2)
+                  .cornerRadius(40)
               }
               
               VStack {
@@ -53,7 +54,7 @@ struct InformationView: View {
                       .fontWeight(.medium)
                       .foregroundColor(Color("Black"))
                   }
-                  .frame(width: geo.size.width / 2 - 6, height: 60)
+                  .frame(width: (geo.size.width - 32) / 2, height: 60)
                   .background(Color("Lilac").opacity(0.2))
                   .cornerRadius(10)
                   
@@ -66,7 +67,7 @@ struct InformationView: View {
                       .fontWeight(.medium)
                       .foregroundColor(Color("Black"))
                   }
-                  .frame(width: geo.size.width / 2 - 6, height: 60)
+                  .frame(width: (geo.size.width - 32) / 2, height: 60)
                   .background(Color("Lilac").opacity(0.2))
                   .cornerRadius(10)
                 }
@@ -81,7 +82,7 @@ struct InformationView: View {
                       .fontWeight(.medium)
                       .foregroundColor(Color("Black"))
                   }
-                  .frame(width: geo.size.width / 3 - 6, height: 60)
+                  .frame(width: (geo.size.width - 40 ) / 3, height: 60)
                   .background(Color("Lilac").opacity(0.2))
                   .cornerRadius(10)
                   
@@ -94,7 +95,7 @@ struct InformationView: View {
                       .fontWeight(.medium)
                       .foregroundColor(Color("Black"))
                   }
-                  .frame(width: geo.size.width / 3 - 6, height: 60)
+                  .frame(width: (geo.size.width - 40 ) / 3, height: 60)
                   .background(Color("Lilac").opacity(0.2))
                   .cornerRadius(10)
                   
@@ -107,18 +108,20 @@ struct InformationView: View {
                       .fontWeight(.medium)
                       .foregroundColor(Color("Black"))
                   }
-                  .frame(width: geo.size.width / 3 - 6, height: 60)
+                  .frame(width: (geo.size.width - 40 ) / 3, height: 60)
                   .background(Color("Lilac").opacity(0.2))
                   .cornerRadius(10)
                 }
               }
+              .frame(width: geo.size.width - 20)
               
               VStack(spacing: 4) {
                 HStack {
                   Text("About")
                     .font(.custom("Fredoka", size: 18))
                     .fontWeight(.medium)
-                  .foregroundColor(Color("Black"))
+                    .foregroundColor(Color("Black"))
+                    .padding(.leading, 12)
                   
                   Spacer()
                 }
@@ -131,24 +134,23 @@ struct InformationView: View {
                     .cornerRadius(10)
                 }
               }
+              .frame(width: geo.size.width - 20)
             }
-            .frame(width: geo.size.width, height: geo.size.height)
-            .padding(.vertical, 20)
           }
+        } else if viewModel.isLoading {
+          ProgressView()
+        } else {
+          // ...
         }
-        .padding(.horizontal, 24)
-      } else if viewModel.isLoading {
-        // ...
-      } else {
-        // ...
       }
+      .frame(width: geo.size.width, height: geo.size.height)
     }
     .task {
       await viewModel.fetchUser()
     }
   }
 }
- 
+
 struct InformationView_Previews: PreviewProvider {
   static var previews: some View {
     InformationView(viewModel: InformationViewModel())
