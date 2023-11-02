@@ -29,16 +29,25 @@ class WelcomeFlowViewModel: ObservableObject {
   }
   
   func navigateToLogin() {
-    let viewModel = SignInViewModel()
+    let viewModel = SignInViewModel(
+      onLoginSuccess: {
+        // TODO
+      },
+      onPressSignup: { [weak self] in
+        self?.navigateToSignup()
+      })
     let view = SignInView(viewModel: viewModel)
     currentView = AnyView(view)
   }
   
   func navigateToSignup() {
-    let viewModel = SignUpViewModel()
-    viewModel.onSignInSelected = { [weak self] in
-      self?.navigateToLogin()
-    }
+    let viewModel = SignUpViewModel(
+      onSignupSuccess: {
+        // TODO
+      },
+      onPressLogin: { [weak self] in
+        self?.navigateToLogin()
+      })
     let view = SignUpView(viewModel: viewModel)
     currentView = AnyView(view)
   }
